@@ -68,8 +68,35 @@ module.exports = function transform(arr) {
 }
 
 else throw ("Error");
+
+
 */
-	throw new CustomError('Not implemented');
+
+	if (!Array.isArray(arr)) throw Error
+	let subArr = [];
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === '--discard-next') {
+
+			i += 1;
+		} else if (arr[i] === '--discard-prev') {
+			subArr.pop();
+		} else if (arr[i] === '--double-next' && i < arr.length - 1) {
+			subArr.push(arr[i + 1]);
+		} else if (arr[i] === '--double-prev' && i > 0) {
+			subArr.push(arr[i - 1]);
+		}
+		else if (arr[i] === '--double-next' && i == arr.length - 1) {
+
+		}
+		else if (arr[i] === '--double-prev' && (i == 0 || arr[i - 2] === '--discard-next')) {
+
+		}
+		else {
+			subArr.push(arr[i]);
+		}
+	}
+	return subArr
+	//	throw new CustomError('Not implemented');
 	// remove line with error and write your code here
 
 };
