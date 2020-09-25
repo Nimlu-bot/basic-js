@@ -1,6 +1,6 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function transform(arr) {
+module.exports = function transform(/*arr*/) {
 	/*	if (arr instanceof Array) {
 	
 			const transformArray = arr.slice();
@@ -72,7 +72,7 @@ else throw ("Error");
 
 */
 
-	if (!Array.isArray(arr)) throw Error
+	/* if (!Array.isArray(arr)) throw Error
 	let subArr = [];
 	for (let i = 0; i < arr.length; i++) {
 		if (arr[i] === '--discard-next') {
@@ -96,7 +96,8 @@ else throw ("Error");
 		}
 	}
 	return subArr
-	//	throw new CustomError('Not implemented');
+	*/
+	throw new CustomError('Not implemented');
 	// remove line with error and write your code here
 
 };
